@@ -1,0 +1,136 @@
+{
+"client": {
+        "host": "127.0.0.1"
+    } ,
+    "server": {
+        "current_time": 1531680780,
+        "services": [{
+            "name": "Twitter",
+            "actions": [{
+                "name": "follow",
+                "description":"A new person is following your account"
+            },
+            {
+                "name":"idolesTweets",
+                "description":"One of your 'idoles' made a new tweet"
+            },
+            {
+                "name":"dm",
+                "description":"A new direct message is receve in your inbox"
+            }
+        ],
+            "reactions": [{
+                "name":"followback",
+                "description":"The user follow a new account"
+            },
+            {
+                "name":"post",
+                "description":"The user post a new tweet"
+            },
+            {
+                "name":"retweet",
+                "description":"The user retweet a tweet"
+            },
+            {
+                "name":"like",
+                "description":"The user like a tweet"
+            },
+            {
+                "name":"makeRead",
+                "description":"A message is marked as read in your inbox"
+            },
+            {
+                "name":"sendDm",
+                "description":"The user send a direct message to a account"
+            }]
+        },
+        {
+            "name": "Trello",
+            "actions": [{
+                "name": "newCard",
+                "description":"A card has been add to the board | change list | change label"
+            },
+            {
+                "name": "newList",
+                "description":"A list has been add to the board"
+            },
+            {
+                "name": "newLabel",
+                "description":"A label has been add to the board"
+            },
+            {
+                "name": "archivedList",
+                "description":"A list has been archived on the board"
+            }
+        ],
+        "reactions": [{
+            "name":"defaultLabel",
+            "description":"Set a default label to a card"
+        },
+        {
+            "name":"addCard",
+            "description":"The user add a card to the board"
+        },
+        {
+            "name":"addList",
+            "description":"The user add a list to the board"
+        }]
+        },
+        {
+            "name": "Github",
+            "actions": [{
+                "name": "newIssue",
+                "description":"A issue has been create on the repo"
+            },
+            {
+                "name": "newBranch",
+                "description":"A branch has been create on the repo"
+            },
+            {
+                "name": "newPull",
+                "description":"A merge request/ pull request has been create on the repo"
+            }
+        ],
+        "reactions": [{
+            "name":"addComment",
+            "description":"The user add a comment to an issue"
+        },
+        {
+            "name":"addIssue",
+            "description":"The user create an issue"
+        },
+        {
+            "name":"pullRequest",
+            "description":"The user create an pull request from a branch to main"
+        }]
+        },
+        {
+            "name": "Spotify",
+            "actions": [{
+                "name": "newArtistAlbum",
+                "description":"An artiste, followed by the user, has released an new album"                
+            },
+            {
+                "name": "newSavedTrack",
+                "description":"The user liked a new track"
+            },
+            {
+                "name": "newPlaylist",
+                "description":"The user created a new public playlist"                
+            }
+        ],
+        "reactions": [{
+            "name":"saveAlbum",
+            "description":"The user like an album"
+        },
+        {
+            "name":"nextTrack",
+            "description":"Skips to next track in the user queue."
+        },
+        {
+            "name":"newSavedTrack",
+            "description":"Put the new track to the playlist filter by the genre"
+        }]
+        }]
+    }
+}

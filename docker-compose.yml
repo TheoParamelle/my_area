@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+    client_web:
+        build: ./src/client_web/
+        container_name: web_Leo
+        volumes:
+            - web:/myfdp
+        depends_on:
+            - server
+            - client_mobile
+        ports:
+            - 8081:3000
+    client_mobile:
+        build: ./src/client_mobile/
+        environment:
+            - NODE_ENV=development
+            - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+            #- REACT_NATIVE_PACKAGER_HOSTNAME=172.20.10.2
+            - REACT_NATIVE_PACKAGER_HOSTNAME=10.211.19.203
+            # - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.99.15
+        tty: true
+        volumes:
+            - web:/myfdp
+        links:
+            - server
+            - db
+        depends_on:
+            - server
+            - db
+        ports:
+            - '19000:19000'
+            - '19001:19001'
+            - '19002:19002'
+        healthcheck:
+            disable: true
+    server:
+        build: ./src/backend
+        volumes:
+            - ./src/backend:/app
+        environment:
+        - PYTHONUNBUFFERED=1
+        env_file:
+            - src/backend/.env
+        ports:
+            - 8080:8080
+        links:
+            - db
+        restart: always
+    db:
+        image: mongo:latest
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=password
+        ports:
+            - 27017:27017
+        volumes:
+            - ./src/mongodb/data:/app
+
+volumes:
+    web:
